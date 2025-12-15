@@ -416,7 +416,14 @@ class AetherLinkApp(ctk.CTk):
     def add_to_db(self, name, path):
         self.load_database()
         user_profile = os.environ.get('USERPROFILE')
-        clean_path = path.replace(user_profile, "%USERPROFILE%") if user_profile else path
+        
+        # FIX: Erst Slashes angleichen, dann ersetzen
+        path_normalized = path.replace("/", "\\")
+        if user_profile and path_normalized.startswith(user_profile):
+            clean_path = path_normalized.replace(user_profile, "%USERPROFILE%")
+        else:
+            clean_path = path
+
         for g in self.games_data:
             if g["name"] == name:
                 g["path_pattern"] = clean_path
