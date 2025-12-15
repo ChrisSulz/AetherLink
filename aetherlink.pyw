@@ -7,14 +7,14 @@ import sys
 import datetime
 import stat
 from tkinter import filedialog, messagebox
-from PIL import Image  # Wichtig für das große Icon
+from PIL import Image
 
-# --- Konfiguration & Design (AetherLink v1.4.0) ---
+# --- Konfiguration & Design (AetherLink v1.5.0) ---
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("dark-blue")
 
 APP_NAME = "AetherLink"
-APP_VERSION = "1.4.0"
+APP_VERSION = "1.5.0"
 ICON_FILENAME = "app_icon.ico" 
 
 myappid = f'custom.aetherlink.sync.{APP_VERSION}'
@@ -24,38 +24,51 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 LANG = {
     "DE": {
         "app_title": APP_NAME,
-        "tab_setup": "  ➕  Spiel hinzufügen",
-        "tab_manage": "  📂  Verwaltung",
-        "tab_help": "  ❓  Anleitung / Hilfe",
         
+        # Sidebar
+        "tab_setup": "  ➕   Spiel hinzufügen",
+        "tab_manage": "  📂   Verwaltung",
+        "tab_help": "  ❓   Anleitung / Hilfe",
         "lbl_cloud": "Cloud Speicherort:",
         "btn_cloud": "☁️ Cloud Ordner wählen",
         
-        "header_setup_main": "Spiel hinzufügen",
+        # Setup Tab
+        "header_setup_main": "➕  Spiel hinzufügen",
         "header_setup_sub": "Ursprungssystem (PC 1) - Erstsicherung",
-        
         "lbl_name": "Name des Spiels:",
         "lbl_path": "Lokaler Pfad:",
         "btn_browse": "📂 Ordner suchen...",
         "no_path": "Kein Ordner gewählt",
         "btn_action": "🛡️  Sichern & Synchronisieren",
-        "log_title": "Protokoll / Status:",
+        "log_title": "📝 Protokoll / Status:",
         
-        "header_manage": "Verwaltung & Wiederherstellung",
+        # Manage Tab
+        "header_manage": "📂  Verwaltung & Wiederherstellung",
         "btn_refresh": "🔄 Liste aktualisieren",
         "list_title": "Synchronisierte Spiele in der Cloud",
         
-        "header_help": "Wie funktioniert AetherLink?",
-        "help_pc1_title": "🖥️  PC 1 (Ursprung)",
-        "help_pc1_text": "1. Wähle oben links deinen Cloud-Ordner (Google Drive, Dropbox...).\n2. Gehe auf 'Spiel hinzufügen'.\n3. Wähle den Ordner mit deinen Spielständen.\n4. Klicke 'Sichern'. Der Ordner wird in die Cloud verschoben und verlinkt.",
-        "help_pc2_title": "💻  PC 2, 3... (Client)",
-        "help_pc2_text": "1. Wähle denselben Cloud-Ordner wie am ersten PC.\n2. Gehe auf 'Verwaltung'.\n3. Klicke bei dem Spiel auf '🔗 Verlinken'.\n4. Fertig! Dein Spielstand ist nun synchron.",
+        # Help Tab Content
+        "header_help": "📖  Wie funktioniert AetherLink?",
         
+        "help_1_title": "🖥️  SCHRITT 1: Ursprung (PC 1)",
+        "help_1_text": "Hier liegen die Spielstände aktuell.\n\n1. Wähle UNTEN LINKS deinen Cloud-Ordner (Google Drive, Dropbox...).\n2. Gehe zum Tab 'Spiel hinzufügen'.\n3. Wähle den lokalen Ordner mit deinen Spielständen.\n4. Klicke 'Sichern'.\n-> Der Ordner wird in die Cloud verschoben und ein Link erstellt.",
+        
+        "help_2_title": "💻  SCHRITT 2: Client (PC 2, 3...)",
+        "help_2_text": "Hier willst du weiterspielen.\n\n1. Wähle denselben Cloud-Ordner wie am ersten PC.\n2. Gehe zum Tab 'Verwaltung'.\n3. Klicke bei dem Spiel auf den blauen Button '🔗 Verlinken'.\n-> Falls lokal schon Spielstände existieren, wird automatisch ein Backup erstellt.",
+        
+        "help_3_title": "🔓  Verbindung trennen (Client)",
+        "help_3_text": "Du willst am PC 2 die Synchronisation beenden?\n\n1. Gehe zu 'Verwaltung'.\n2. Klicke den orangen Button 'Trennen (Client)'.\n-> Der Link wird entfernt. Die Cloud-Daten bleiben SICHER.\n-> Falls ein lokales Backup (von vor der Verlinkung) da ist, wird es wiederhergestellt.",
+        
+        "help_4_title": "⚠️  GEFAHR: Reset (Ursprung)",
+        "help_4_text": "Du willst das Spiel komplett aus der Cloud löschen?\n\n1. Klicke den dunkelroten Button 'Reset (Ursprung)'.\n-> Der Link wird entfernt.\n-> Daten werden aus der Cloud zurück auf diesen PC geholt.\n-> ACHTUNG: Der Ordner in der Cloud wird GELÖSCHT!",
+
+        # Buttons Logic
         "btn_link": "🔗 Verlinken",
         "btn_unlink": "Trennen (Client)",
         "btn_restore": "⚠️ Reset (Ursprung)",
         "btn_forget": "❌",
         
+        # Messages
         "msg_cloud_err": "Bitte zuerst Cloud-Ordner wählen!",
         "msg_name_err": "Bitte Namen eingeben!",
         "msg_path_err": "Bitte Spielordner wählen!",
@@ -72,33 +85,33 @@ LANG = {
     },
     "EN": {
         "app_title": APP_NAME,
-        "tab_setup": "  ➕  Add Game",
-        "tab_manage": "  📂  Manage",
-        "tab_help": "  ❓  Help / Guide",
-        
+        "tab_setup": "  ➕   Add Game",
+        "tab_manage": "  📂   Manage",
+        "tab_help": "  ❓   Help / Guide",
         "lbl_cloud": "Cloud Storage Path:",
         "btn_cloud": "☁️ Select Cloud Folder",
-        
-        "header_setup_main": "Add New Game",
+        "header_setup_main": "➕  Add New Game",
         "header_setup_sub": "Origin System (PC 1) - Initial Backup",
-        
         "lbl_name": "Game Name:",
         "lbl_path": "Local Path:",
         "btn_browse": "📂 Browse...",
         "no_path": "No folder selected",
         "btn_action": "🛡️  Backup & Sync",
-        "log_title": "Log / Status:",
-        
-        "header_manage": "Manage & Restore",
+        "log_title": "📝 Log / Status:",
+        "header_manage": "📂  Manage & Restore",
         "btn_refresh": "🔄 Refresh List",
         "list_title": "Synced Games in Cloud",
         
-        "header_help": "How to use AetherLink",
-        "help_pc1_title": "🖥️  PC 1 (Origin)",
-        "help_pc1_text": "1. Select your Cloud Folder (Drive, Dropbox...) on the left.\n2. Go to 'Add Game'.\n3. Select your local save game folder.\n4. Click 'Backup & Sync'. Files are moved to cloud and linked.",
-        "help_pc2_title": "💻  PC 2, 3... (Client)",
-        "help_pc2_text": "1. Select the same Cloud Folder as on PC 1.\n2. Go to 'Manage'.\n3. Click '🔗 Link Here' next to the game.\n4. Done! Your saves are now synced.",
-        
+        "header_help": "📖  How to use AetherLink",
+        "help_1_title": "🖥️  STEP 1: Origin (PC 1)",
+        "help_1_text": "Where your saves are currently located.\n\n1. Select your Cloud Folder (Drive, Dropbox...) at the BOTTOM LEFT.\n2. Go to 'Add Game'.\n3. Select your local save folder.\n4. Click 'Backup & Sync'.\n-> Files are moved to cloud and linked locally.",
+        "help_2_title": "💻  STEP 2: Client (PC 2, 3...)",
+        "help_2_text": "Where you want to play securely.\n\n1. Select the same Cloud Folder as on PC 1.\n2. Go to 'Manage'.\n3. Click the blue button '🔗 Link Here'.\n-> If local saves exist, a backup is created automatically.",
+        "help_3_title": "🔓  Unlink (Client)",
+        "help_3_text": "Stop syncing on PC 2?\n\n1. Go to 'Manage'.\n2. Click orange button 'Unlink (Client)'.\n-> Link is removed. Cloud data remains SAFE.\n-> If a pre-link backup exists, it is restored.",
+        "help_4_title": "⚠️  DANGER: Reset (Origin)",
+        "help_4_text": "Completely remove sync and delete from cloud?\n\n1. Click dark red button 'Reset (Origin)'.\n-> Link is removed.\n-> Data is copied back from cloud to this PC.\n-> WARNING: Cloud folder will be DELETED!",
+
         "btn_link": "🔗 Link Here",
         "btn_unlink": "Unlink (Client)",
         "btn_restore": "⚠️ Reset (Origin)",
@@ -127,7 +140,7 @@ class AetherLinkApp(ctk.CTk):
         self.t = LANG[self.current_lang]
         
         self.title(self.t["app_title"])
-        self.geometry("1100x750") 
+        self.geometry("1100x800") 
         
         # --- Pfade & Icon Check ---
         base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
@@ -151,7 +164,6 @@ class AetherLinkApp(ctk.CTk):
         self.large_icon_image = None
         if self.icon_path_abs:
             try:
-                # Lade Icon als Bild, Größe 64x64
                 pil_img = Image.open(self.icon_path_abs)
                 self.large_icon_image = ctk.CTkImage(light_image=pil_img, dark_image=pil_img, size=(64, 64))
             except Exception as e:
@@ -186,7 +198,7 @@ class AetherLinkApp(ctk.CTk):
         self.lbl_admin = ctk.CTkLabel(self.sidebar, text=admin_txt, font=ctk.CTkFont(size=12, weight="bold"), text_color=admin_col)
         self.lbl_admin.grid(row=2, column=0, pady=(0, 30))
 
-        # Navigation Buttons
+        # Navigation Buttons (More consistent styling)
         self.btn_nav_setup = self.create_nav_btn(self.t["tab_setup"], "setup", 3)
         self.btn_nav_manage = self.create_nav_btn(self.t["tab_manage"], "manage", 4)
         self.btn_nav_help = self.create_nav_btn(self.t["tab_help"], "help", 5)
@@ -218,8 +230,9 @@ class AetherLinkApp(ctk.CTk):
         self.select_frame("setup")
 
     def create_nav_btn(self, text, frame_name, row):
-        btn = ctk.CTkButton(self.sidebar, text=text, height=45, anchor="w", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), font=ctk.CTkFont(size=13), command=lambda: self.select_frame(frame_name))
-        btn.grid(row=row, column=0, padx=10, pady=5, sticky="ew")
+        # Größere Font und mehr Padding für besseres Alignment
+        btn = ctk.CTkButton(self.sidebar, text=text, height=50, anchor="w", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), font=ctk.CTkFont(size=14, weight="bold"), command=lambda: self.select_frame(frame_name))
+        btn.grid(row=row, column=0, padx=15, pady=5, sticky="ew")
         return btn
 
     def is_admin(self):
@@ -229,14 +242,12 @@ class AetherLinkApp(ctk.CTk):
     # --- UI LAYOUTS ---
     
     def setup_ui_setup(self):
-        # Header Split Design
-        self.lbl_setup_main = ctk.CTkLabel(self.frame_setup, text=self.t["header_setup_main"], font=("Roboto", 26, "bold"))
+        self.lbl_setup_main = ctk.CTkLabel(self.frame_setup, text=self.t["header_setup_main"], font=("Roboto", 28, "bold"))
         self.lbl_setup_main.pack(pady=(40, 0), padx=40, anchor="w")
         
         self.lbl_setup_sub = ctk.CTkLabel(self.frame_setup, text=self.t["header_setup_sub"], font=("Roboto", 14), text_color="gray")
         self.lbl_setup_sub.pack(pady=(0, 30), padx=40, anchor="w")
 
-        # Input Area
         frm = ctk.CTkFrame(self.frame_setup)
         frm.pack(pady=10, padx=40, fill="x")
         frm.grid_columnconfigure(1, weight=1)
@@ -258,52 +269,56 @@ class AetherLinkApp(ctk.CTk):
         self.lbl_selected_path = ctk.CTkLabel(frm_browse, text=self.t["no_path"], text_color="gray")
         self.lbl_selected_path.grid(row=0, column=1, padx=15, sticky="w")
 
-        # Big Action Button
         self.btn_start_sync = ctk.CTkButton(self.frame_setup, text=self.t["btn_action"], font=("Arial", 14, "bold"), height=50, fg_color="#2CC985", hover_color="#25A970", text_color="white", command=self.process_new_game)
         self.btn_start_sync.pack(pady=30, padx=40, fill="x")
 
-        # Log Area
         self.lbl_log_title = ctk.CTkLabel(self.frame_setup, text=self.t["log_title"], font=("Arial", 12, "bold"))
         self.lbl_log_title.pack(padx=40, anchor="w")
         self.console = ctk.CTkTextbox(self.frame_setup, height=150)
         self.console.pack(padx=40, pady=(5,40), fill="both", expand=True)
 
     def setup_ui_manage(self):
-        self.lbl_manage_header = ctk.CTkLabel(self.frame_manage, text=self.t["header_manage"], font=("Roboto", 26, "bold"))
+        self.lbl_manage_header = ctk.CTkLabel(self.frame_manage, text=self.t["header_manage"], font=("Roboto", 28, "bold"))
         self.lbl_manage_header.pack(pady=(40, 20), padx=40, anchor="w")
 
-        # Toolbar
         frm_tool = ctk.CTkFrame(self.frame_manage, fg_color="transparent")
         frm_tool.pack(fill="x", padx=40)
         
         self.btn_refresh_list = ctk.CTkButton(frm_tool, text=self.t["btn_refresh"], command=self.load_database, width=150)
         self.btn_refresh_list.pack(side="left")
 
-        # List
         self.scroll_list = ctk.CTkScrollableFrame(self.frame_manage, label_text=self.t["list_title"])
         self.scroll_list.pack(padx=40, pady=20, fill="both", expand=True)
 
     def setup_ui_help(self):
-        self.lbl_help_header = ctk.CTkLabel(self.frame_help, text=self.t["header_help"], font=("Roboto", 26, "bold"))
-        self.lbl_help_header.pack(pady=(40, 30), padx=40, anchor="w")
+        # 1. WICHTIG: Erst alles löschen (behebt den Fehler aus dem Screenshot)
+        for widget in self.frame_help.winfo_children(): widget.destroy()
 
-        # Container PC 1
-        frm_pc1 = ctk.CTkFrame(self.frame_help)
-        frm_pc1.pack(fill="x", padx=40, pady=10)
-        self.lbl_help_pc1_t = ctk.CTkLabel(frm_pc1, text=self.t["help_pc1_title"], font=("Arial", 16, "bold"), text_color="#66aaff")
-        self.lbl_help_pc1_t.pack(anchor="w", padx=20, pady=(15, 5))
-        self.lbl_help_pc1_msg = ctk.CTkLabel(frm_pc1, text=self.t["help_pc1_text"], justify="left", font=("Arial", 13))
-        self.lbl_help_pc1_msg.pack(anchor="w", padx=20, pady=(0, 15))
+        # Überschrift (Fixiert oben)
+        self.lbl_help_header = ctk.CTkLabel(self.frame_help, text=self.t["header_help"], font=("Roboto", 28, "bold"))
+        self.lbl_help_header.pack(pady=(40, 20), padx=40, anchor="w")
 
-        # Container PC 2
-        frm_pc2 = ctk.CTkFrame(self.frame_help)
-        frm_pc2.pack(fill="x", padx=40, pady=10)
-        self.lbl_help_pc2_t = ctk.CTkLabel(frm_pc2, text=self.t["help_pc2_title"], font=("Arial", 16, "bold"), text_color="#ffaa44")
-        self.lbl_help_pc2_t.pack(anchor="w", padx=20, pady=(15, 5))
-        self.lbl_help_pc2_msg = ctk.CTkLabel(frm_pc2, text=self.t["help_pc2_text"], justify="left", font=("Arial", 13))
-        self.lbl_help_pc2_msg.pack(anchor="w", padx=20, pady=(0, 15))
+        # Scroll-Bereich (Transparent, damit es nahtlos aussieht wie früher)
+        self.scroll_help = ctk.CTkScrollableFrame(self.frame_help, fg_color="transparent")
+        self.scroll_help.pack(fill="both", expand=True, padx=20, pady=(0, 20))
 
-    # --- SWITCHING ---
+        # Boxen erstellen (Kompaktes Design wie v1.4)
+        self.create_help_box(self.scroll_help, "help_1_title", "help_1_text", "#66aaff")
+        self.create_help_box(self.scroll_help, "help_2_title", "help_2_text", "#ffaa44")
+        self.create_help_box(self.scroll_help, "help_3_title", "help_3_text", "#E0B000")
+        self.create_help_box(self.scroll_help, "help_4_title", "help_4_text", "#FF5555")
+
+    def create_help_box(self, parent, title_key, text_key, border_color):
+        frm = ctk.CTkFrame(parent, border_color=border_color, border_width=2)
+        frm.pack(fill="x", padx=10, pady=8) # Engeres Padding für kompakten Look
+        
+        lbl_t = ctk.CTkLabel(frm, text=self.t[title_key], font=("Arial", 16, "bold"), text_color=border_color)
+        lbl_t.pack(anchor="w", padx=20, pady=(12, 5))
+        
+        lbl_msg = ctk.CTkLabel(frm, text=self.t[text_key], justify="left", font=("Arial", 13))
+        lbl_msg.pack(anchor="w", padx=20, pady=(0, 12))
+
+    # --- SWITCHING (Korrigiert) ---
 
     def change_language(self, choice):
         self.current_lang = "DE" if choice == "Deutsch" else "EN"
@@ -320,33 +335,27 @@ class AetherLinkApp(ctk.CTk):
         self.lbl_cloud_status.configure(text=self.t["lbl_cloud"] + "\n" + (self.cloud_path[:20]+"..." if self.cloud_path else "❌"))
         self.btn_select_cloud.configure(text=self.t["btn_cloud"])
         
-        # Setup Tab
+        # Setup Tab Updates
         self.lbl_setup_main.configure(text=self.t["header_setup_main"])
         self.lbl_setup_sub.configure(text=self.t["header_setup_sub"])
         self.lbl_name_txt.configure(text=self.t["lbl_name"])
         self.lbl_path_txt.configure(text=self.t["lbl_path"])
         self.btn_browse.configure(text=self.t["btn_browse"])
-        if not self.selected_game_path:
-            self.lbl_selected_path.configure(text=self.t["no_path"])
+        if not self.selected_game_path: self.lbl_selected_path.configure(text=self.t["no_path"])
         self.btn_start_sync.configure(text=self.t["btn_action"])
         self.lbl_log_title.configure(text=self.t["log_title"])
         
-        # Manage Tab
+        # Manage Tab Updates
         self.lbl_manage_header.configure(text=self.t["header_manage"])
         self.btn_refresh_list.configure(text=self.t["btn_refresh"])
         self.scroll_list.configure(label_text=self.t["list_title"])
         
-        # Help Tab
-        self.lbl_help_header.configure(text=self.t["header_help"])
-        self.lbl_help_pc1_t.configure(text=self.t["help_pc1_title"])
-        self.lbl_help_pc1_msg.configure(text=self.t["help_pc1_text"])
-        self.lbl_help_pc2_t.configure(text=self.t["help_pc2_title"])
-        self.lbl_help_pc2_msg.configure(text=self.t["help_pc2_text"])
-
         # Admin
         admin_txt = self.t["admin_ok"] if self.is_admin() else self.t["admin_no"]
         self.lbl_admin.configure(text=admin_txt)
 
+        # FIX: Hilfe komplett neu bauen (verhindert Text-Fehler)
+        self.setup_ui_help()
         self.load_database()
 
     def select_frame(self, name):
@@ -357,7 +366,6 @@ class AetherLinkApp(ctk.CTk):
         active_color = ("gray75", "gray25")
         transparent = "transparent"
         
-        # Reset all
         self.btn_nav_setup.configure(fg_color=transparent)
         self.btn_nav_manage.configure(fg_color=transparent)
         self.btn_nav_help.configure(fg_color=transparent)
@@ -372,7 +380,7 @@ class AetherLinkApp(ctk.CTk):
         elif name == "help":
             self.frame_help.grid(row=0, column=1, sticky="nsew")
             self.btn_nav_help.configure(fg_color=active_color)
-
+            
     def browse_game_folder(self):
         path = filedialog.askdirectory()
         if path:
