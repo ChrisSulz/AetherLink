@@ -14,7 +14,7 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("dark-blue")
 
 APP_NAME = "AetherLink"
-APP_VERSION = "1.5.0"
+APP_VERSION = "1.5.1"
 ICON_FILENAME = "app_icon.ico" 
 
 myappid = f'custom.aetherlink.sync.{APP_VERSION}'
@@ -27,7 +27,7 @@ LANG = {
         
         # Sidebar
         "tab_setup": "  ➕   Spiel hinzufügen",
-        "tab_manage": "  📂   Verwaltung",
+        "tab_manage": "  📂    Verwaltung",
         "tab_help": "  ❓   Anleitung / Hilfe",
         "lbl_cloud": "Cloud Speicherort:",
         "btn_cloud": "☁️ Cloud Ordner wählen",
@@ -51,15 +51,15 @@ LANG = {
         "header_help": "📖  Wie funktioniert AetherLink?",
         
         "help_1_title": "🖥️  SCHRITT 1: Ursprung (PC 1)",
-        "help_1_text": "Hier liegen die Spielstände aktuell.\n\n1. Wähle UNTEN LINKS deinen Cloud-Ordner (Google Drive, Dropbox...).\n2. Gehe zum Tab 'Spiel hinzufügen'.\n3. Wähle den lokalen Ordner mit deinen Spielständen.\n4. Klicke 'Sichern'.\n-> Der Ordner wird in die Cloud verschoben und ein Link erstellt.",
+        "help_1_text": "Hier liegen die Spielstände aktuell.\n\n1. Wähle unten links deinen Cloud-Ordner (Google Drive, Dropbox...).\n2. Gehe zum Tab 'Spiel hinzufügen'.\n3. Wähle den lokalen Ordner mit deinen Spielständen.\n4. Klicke 'Sichern'.\n-> Der Ordner wird in die Cloud verschoben und ein Link erstellt.",
         
-        "help_2_title": "💻  SCHRITT 2: Client (PC 2, 3...)",
+        "help_2_title": "💻        SCHRITT 2: Client (PC 2, 3...)",
         "help_2_text": "Hier willst du weiterspielen.\n\n1. Wähle denselben Cloud-Ordner wie am ersten PC.\n2. Gehe zum Tab 'Verwaltung'.\n3. Klicke bei dem Spiel auf den blauen Button '🔗 Verlinken'.\n-> Falls lokal schon Spielstände existieren, wird automatisch ein Backup erstellt.",
         
-        "help_3_title": "🔓  Verbindung trennen (Client)",
+        "help_3_title": "🔓        Verbindung trennen (Client)",
         "help_3_text": "Du willst am PC 2 die Synchronisation beenden?\n\n1. Gehe zu 'Verwaltung'.\n2. Klicke den orangen Button 'Trennen (Client)'.\n-> Der Link wird entfernt. Die Cloud-Daten bleiben SICHER.\n-> Falls ein lokales Backup (von vor der Verlinkung) da ist, wird es wiederhergestellt.",
         
-        "help_4_title": "⚠️  GEFAHR: Reset (Ursprung)",
+        "help_4_title": "⚠️        Reset (Ursprung)",
         "help_4_text": "Du willst das Spiel komplett aus der Cloud löschen?\n\n1. Klicke den dunkelroten Button 'Reset (Ursprung)'.\n-> Der Link wird entfernt.\n-> Daten werden aus der Cloud zurück auf diesen PC geholt.\n-> ACHTUNG: Der Ordner in der Cloud wird GELÖSCHT!",
 
         # Buttons Logic
@@ -86,7 +86,7 @@ LANG = {
     "EN": {
         "app_title": APP_NAME,
         "tab_setup": "  ➕   Add Game",
-        "tab_manage": "  📂   Manage",
+        "tab_manage": "  📂    Manage",
         "tab_help": "  ❓   Help / Guide",
         "lbl_cloud": "Cloud Storage Path:",
         "btn_cloud": "☁️ Select Cloud Folder",
@@ -104,12 +104,12 @@ LANG = {
         
         "header_help": "📖  How to use AetherLink",
         "help_1_title": "🖥️  STEP 1: Origin (PC 1)",
-        "help_1_text": "Where your saves are currently located.\n\n1. Select your Cloud Folder (Drive, Dropbox...) at the BOTTOM LEFT.\n2. Go to 'Add Game'.\n3. Select your local save folder.\n4. Click 'Backup & Sync'.\n-> Files are moved to cloud and linked locally.",
-        "help_2_title": "💻  STEP 2: Client (PC 2, 3...)",
+        "help_1_text": "Where your saves are currently located.\n\n1. Select your Cloud Folder (Drive, Dropbox...) at the bottom left.\n2. Go to 'Add Game'.\n3. Select your local save folder.\n4. Click 'Backup & Sync'.\n-> Files are moved to cloud and linked locally.",
+        "help_2_title": "💻        STEP 2: Client (PC 2, 3...)",
         "help_2_text": "Where you want to play securely.\n\n1. Select the same Cloud Folder as on PC 1.\n2. Go to 'Manage'.\n3. Click the blue button '🔗 Link Here'.\n-> If local saves exist, a backup is created automatically.",
-        "help_3_title": "🔓  Unlink (Client)",
+        "help_3_title": "🔓        Unlink (Client)",
         "help_3_text": "Stop syncing on PC 2?\n\n1. Go to 'Manage'.\n2. Click orange button 'Unlink (Client)'.\n-> Link is removed. Cloud data remains SAFE.\n-> If a pre-link backup exists, it is restored.",
-        "help_4_title": "⚠️  DANGER: Reset (Origin)",
+        "help_4_title": "⚠️        Reset (Origin)",
         "help_4_text": "Completely remove sync and delete from cloud?\n\n1. Click dark red button 'Reset (Origin)'.\n-> Link is removed.\n-> Data is copied back from cloud to this PC.\n-> WARNING: Cloud folder will be DELETED!",
 
         "btn_link": "🔗 Link Here",
