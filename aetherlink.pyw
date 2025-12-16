@@ -14,7 +14,7 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("dark-blue")
 
 APP_NAME = "AetherLink"
-APP_VERSION = "1.5.1"
+APP_VERSION = "1.5.2"
 ICON_FILENAME = "app_icon.ico" 
 
 myappid = f'custom.aetherlink.sync.{APP_VERSION}'
@@ -144,12 +144,10 @@ class AetherLinkApp(ctk.CTk):
         
         # --- Pfade & Icon Check ---
         base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
-        self.icon_path_abs = None
         
         possible_icons = [
-            os.path.join(base_path, ICON_FILENAME),
-            os.path.join(base_path, "data", ICON_FILENAME),
-            os.path.join("data", ICON_FILENAME)
+            os.path.join(base_path, "assets", ICON_FILENAME), # Prio 1: assets Ordner
+            os.path.join("assets", ICON_FILENAME)             # Prio 2: Relativ
         ]
         
         # 1. Window Icon (Bitmap)

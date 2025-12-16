@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="app_icon.ico" alt="AetherLink Logo" width="120" height="120">
+  <img src="assets/app_icon.ico" alt="AetherLink Logo" width="120" height="120">
 
   # AetherLink
   
@@ -35,7 +35,7 @@ Unlike other tools, AetherLink distinguishes between the **Origin PC** (where th
 
 | **Dashboard & Setup** | **Management & Restore** |
 |:---:|:---:|
-| ![Dashboard Screenshot](PLACEHOLDER_LINK_HERE_1.png) | ![Management Screenshot](PLACEHOLDER_LINK_HERE_2.png) |
+| ![Dashboard](assets/Screenshot_Dashboard.png) | ![Management](assets/Screenshot_Management.png) |
 | *Modern Dark-UI for easy setup* | *Manage links and restore backups* |
 
 ---
