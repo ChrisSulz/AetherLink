@@ -14,7 +14,7 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("dark-blue")
 
 APP_NAME = "AetherLink"
-APP_VERSION = "1.5.2"
+APP_VERSION = "1.5.3"
 ICON_FILENAME = "app_icon.ico" 
 
 myappid = f'custom.aetherlink.sync.{APP_VERSION}'
