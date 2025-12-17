@@ -14,7 +14,7 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("dark-blue")
 
 APP_NAME = "AetherLink"
-APP_VERSION = "1.5.3"
+APP_VERSION = "1.5.3.1"
 ICON_FILENAME = "app_icon.ico" 
 
 myappid = f'custom.aetherlink.sync.{APP_VERSION}'
@@ -136,7 +136,7 @@ LANG = {
 class AetherLinkApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.current_lang = "DE"
+        self.current_lang = "EN"
         self.t = LANG[self.current_lang]
         
         self.title(self.t["app_title"])
@@ -202,7 +202,7 @@ class AetherLinkApp(ctk.CTk):
         self.btn_nav_help = self.create_nav_btn(self.t["tab_help"], "help", 5)
 
         # Bottom Area
-        self.lang_var = ctk.StringVar(value="Deutsch")
+        self.lang_var = ctk.StringVar(value="English")
         self.opt_lang = ctk.CTkOptionMenu(self.sidebar, values=["Deutsch", "English"], variable=self.lang_var, command=self.change_language, width=160, fg_color=("gray70", "gray30"), button_color=("gray60", "gray20"))
         self.opt_lang.grid(row=7, column=0, padx=20, pady=(10, 10))
 
@@ -544,7 +544,7 @@ class AetherLinkApp(ctk.CTk):
             with open(self.config_file, "r") as f:
                 d = json.load(f)
                 self.cloud_path = d.get("cloud_path", "")
-                saved_lang = d.get("language", "DE")
+                saved_lang = d.get("language", "EN")
                 if saved_lang != self.current_lang:
                     self.lang_var.set("Deutsch" if saved_lang == "DE" else "English")
                     self.change_language(self.lang_var.get())
