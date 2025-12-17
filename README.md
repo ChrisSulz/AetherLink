@@ -2,13 +2,13 @@
 
   <img src="assets/app_icon.ico" alt="AetherLink Logo" width="120" height="120">
 
-  # AetherLink
-  
-  **Seamless Game Save Synchronization for Windows**
-  
-  [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-  [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
-  [![Vibe Coding](https://img.shields.io/badge/Built%20with-Vibe%20Coding-purple?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/)
+# AetherLink
+
+**Seamless Game Save Synchronization for Windows**
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
+[![Vibe Coding](https://img.shields.io/badge/Built%20with-Vibe%20Coding-purple?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/)
 
   <p>
     <b>🇬🇧 English</b> •
@@ -28,7 +28,7 @@
 
 ## 🚀 About The Project
 
-**AetherLink** is a modern, user-friendly tool designed to synchronize your local PC game saves with any cloud provider (Google Drive, Dropbox, OneDrive) using **symbolic links**. 
+**AetherLink** is a modern, user-friendly tool designed to synchronize your local PC game saves with any cloud provider (Google Drive, Dropbox, OneDrive) using **symbolic links**.
 
 Unlike other tools, AetherLink distinguishes between the **Origin PC** (where the save comes from) and **Client PCs** (where you want to play), ensuring your data is safe. It includes automatic local backups before any critical operation to prevent data loss.
 
@@ -38,24 +38,24 @@ Unlike other tools, AetherLink distinguishes between the **Origin PC** (where th
 
 ## 📸 Screenshots
 
-| **Dashboard & Setup** | **Management & Restore** |
-|:---:|:---:|
-| ![Dashboard](assets/Screenshot_Dashboard.png) | ![Management](assets/Screenshot_Management.png) |
-| *Modern Dark-UI for easy setup* | *Manage links and restore backups* |
+|              **Dashboard & Setup**               |              **Management & Restore**              |
+| :----------------------------------------------: | :------------------------------------------------: |
+| ![Dashboard](assets/Screenshot_Dashboard_EN.png) | ![Management](assets/Screenshot_Management_EN.png) |
+|         _Modern Dark-UI for easy setup_          |         _Manage links and restore backups_         |
 
 ---
 
 ## ✨ Features
 
-*   **☁️ Universal Cloud Sync:** Works with any folder that synchronizes with the cloud.
-*   **🛡️ Safety First:** automatically creates local `.zip` backups before moving or linking files.
-*   **🖥️ Multi-PC Logic:**
-    *   **PC 1 (Origin):** Moves saves to cloud and links them.
-    *   **PC 2+ (Client):** Detects existing saves, backs them up, and links to the cloud.
-*   **↩️ Smart Restore:** Easily unlink and restore original files if you want to stop syncing.
-*   **🎨 Modern UI:** Built with `CustomTkinter` for a sleek, dark-themed Windows 11 look.
-*   **🌍 Multi-Language:** Full support for **English** and **German**.
-*   **🔧 Admin Handling:** Automatically requests necessary permissions to create symbolic links.
+- **☁️ Universal Cloud Sync:** Works with any folder that synchronizes with the cloud.
+- **🛡️ Safety First:** automatically creates local `.zip` backups before moving or linking files.
+- **🖥️ Multi-PC Logic:**
+  - **PC 1 (Origin):** Moves saves to cloud and links them.
+  - **PC 2+ (Client):** Detects existing saves, backs them up, and links to the cloud.
+- **↩️ Smart Restore:** Easily unlink and restore original files if you want to stop syncing.
+- **🎨 Modern UI:** Built with `CustomTkinter` for a sleek, dark-themed Windows 11 look.
+- **🌍 Multi-Language:** Full support for **English** and **German**.
+- **🔧 Admin Handling:** Automatically requests necessary permissions to create symbolic links.
 
 ---
 
@@ -64,7 +64,7 @@ Unlike other tools, AetherLink distinguishes between the **Origin PC** (where th
 AetherLink uses the **"Sync & Link"** method:
 
 1.  **Move:** The program moves your local save folder (e.g., from `AppData`) to your Cloud folder.
-2.  **Link:** It places a *Symbolic Link* (Symlink) in the original location.
+2.  **Link:** It places a _Symbolic Link_ (Symlink) in the original location.
 3.  **Sync:** The game thinks the files are still there, but they are physically in the cloud, syncing to all your devices.
 
 ---
@@ -102,7 +102,8 @@ If you want a portable file to share between PCs:
 ## 🎮 Usage Guide
 
 ### 🖥️ On PC 1 (The Origin)
-*Where your save files currently are.*
+
+_Where your save files currently are._
 
 1.  Select your **Cloud Folder** (bottom left).
 2.  Go to **"Add Game"**.
@@ -110,16 +111,18 @@ If you want a portable file to share between PCs:
 4.  Click **"Backup & Sync"**.
 
 ### 💻 On PC 2, 3... (The Clients)
-*Where you want to continue playing.*
+
+_Where you want to continue playing._
 
 1.  Select the **same Cloud Folder**.
 2.  Go to **"Manage"**.
 3.  Find the game in the list and click the blue **"🔗 Link Here"** button.
-    *   *Note: If a local save exists on PC 2, AetherLink will back it up automatically before linking.*
+    - _Note: If a local save exists on PC 2, AetherLink will back it up automatically before linking._
 
 ### 🔓 Unlinking / Uninstalling
-*   **Client:** Click "Unlink (Client)" to remove the link and restore local backups. Cloud data remains safe.
-*   **Origin:** Click "Reset (Origin)" to pull data back from the cloud and delete the cloud copy.
+
+- **Client:** Click "Unlink (Client)" to remove the link and restore local backups. Cloud data remains safe.
+- **Origin:** Click "Reset (Origin)" to pull data back from the cloud and delete the cloud copy.
 
 ---
 
