@@ -40,7 +40,8 @@ AetherLink unterscheidet intelligent zwischen dem **Ursprungs-PC** (wo der Save 
 
 | **Dashboard & Setup** | **Verwaltung & Wiederherstellung** |
 |:---:|:---:|
-| ![Dashboard](assets/Screenshot1.png) | ![Verwaltung](assets/Screenshot2.png) |
+| ![Dashboard](assets/Screenshot_Dashboard.png) | ![Management](assets/Screenshot_Management.png) |
+| *Moderne dunkle GUI mit simpler Konfiguration* | *Links verwalten und Backups wiederherstellen* |
 
 ---
 
