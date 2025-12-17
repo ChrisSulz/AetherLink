@@ -1,10 +1,3 @@
-<p align="center">
-  <a href="README.md">English</a> •
-  <a href="README.de.md">Deutsch</a>
-</p>
-
----
-
 <div align="center">
 
   <img src="assets/app_icon.ico" alt="AetherLink Logo" width="120" height="120">
@@ -18,8 +11,8 @@
   [![Vibe Coding](https://img.shields.io/badge/Built%20with-Vibe%20Coding-purple?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/)
 
   <p>
-    <a href="README.md">English</a> •
-    <b>Deutsch</b>
+    <a href="README.md">🇬🇧 Englisch</a> •
+    <b>🇩🇪 Deutsch</b>
   </p>
 
   <p>
