@@ -11,6 +11,11 @@
   [![Vibe Coding](https://img.shields.io/badge/Built%20with-Vibe%20Coding-purple?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/)
 
   <p>
+    <b>🇬🇧 English</b> •
+    <a href="README-DE.md">🇩🇪 German</a>
+  </p>
+
+  <p>
     <a href="#-features">Features</a> •
     <a href="#-how-it-works">How It Works</a> •
     <a href="#-installation">Installation</a> •
