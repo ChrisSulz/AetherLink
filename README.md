@@ -8,7 +8,6 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
-[![Vibe Coding](https://img.shields.io/badge/Built%20with-Vibe%20Coding-purple?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/)
 
   <p>
     <b>🇬🇧 English</b> •
@@ -31,8 +30,6 @@
 **AetherLink** is a modern, user-friendly tool designed to synchronize your local PC game saves with any cloud provider (Google Drive, Dropbox, OneDrive) using **symbolic links**.
 
 Unlike other tools, AetherLink distinguishes between the **Origin PC** (where the save comes from) and **Client PCs** (where you want to play), ensuring your data is safe. It includes automatic local backups before any critical operation to prevent data loss.
-
-> **✨ Created via Vibe Coding:** This entire project—from concept to the final line of code—was generated through an iterative "Vibe Coding" process, focusing on rapid prototyping, modern UI design, and user-centric functionality.
 
 ---
 
@@ -128,8 +125,6 @@ _Where you want to continue playing._
 
 ## 🤝 Contributing
 
-This project was built using Vibe Coding, but contributions are welcome!
-
 1.  Fork the Project
 2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
@@ -141,9 +136,3 @@ This project was built using Vibe Coding, but contributions are welcome!
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-<div align="center">
-  <sub>Built with 💜 and AI.</sub>
-</div>
