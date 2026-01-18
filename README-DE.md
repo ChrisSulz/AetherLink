@@ -71,7 +71,7 @@ AetherLink nutzt die **"Sync & Link"** Methode:
 
 1.  **Repository klonen**
     ```bash
-    git clone https://github.com/DEIN_BENUTZERNAME/AetherLink.git
+    git clone https://github.com/ChrisSulz/AetherLink.git
     cd AetherLink
     ```
 2.  **Abhängigkeiten installieren**
